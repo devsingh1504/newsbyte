@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
     const fetchProfile = async () => {
       try {
         const token = Cookies.get("jwt"); // Retrieve the token directly as a string
-       
 
         if (token) {
           const { data } = await axios.get(
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }) => {
               },
             }
           );
-          console.log(data);
+          //  console.log(data);
           setProfile(data);
           setIsAuthenticated(true);
         }
@@ -41,7 +40,7 @@ export const AuthProvider = ({ children }) => {
           "http://localhost:4001/api/blogs/all-blogs",
           { withCredentials: true }
         );
-        console.log(data);
+        // console.log(data);
         setBlogs(data);
       } catch (error) {
         console.log(error);

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../src/components/Navbar";
 import Home from "../src/components/Home";
 import Footer from "../src/components/Footer";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import Blogs from "../src/pages/Blogs";
 import About from "../src/pages/About";
 import Contact from "../src/pages/Contact";
@@ -14,20 +14,21 @@ import { useAuth } from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import UpdateBlog from "./dashboard/UpdateBlog";
 import Detail from "./pages/Detail";
+import News from "./pages/News";
 function App() {
   const location = useLocation();
   const hideNavbarFooter = ["/dashboard", "/login", "/register"].includes(
     location.pathname
   );
   const { blogs, isAuthenticated } = useAuth();
-  console.log(blogs);
-  console.log(isAuthenticated);
- 
+  //console.log(blogs);
+  //console.log(isAuthenticated);
+
   return (
     <div>
       {!hideNavbarFooter && <Navbar />}
       <Routes>
-       <Route
+        <Route
           exact
           path="/"
           element={
@@ -41,6 +42,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/news" element={<News />} />
 
         {/* Update page route */}
         <Route exact path="/blog/:id" element={<Detail />} />

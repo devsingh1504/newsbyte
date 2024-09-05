@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 function Creators() {
   const [creators, setCreators] = useState([]);
-  console.log(creators);
+  // console.log(creators);
   useEffect(() => {
     const fetchCreators = async () => {
       try {
@@ -38,7 +38,7 @@ function Creators() {
               <img
                 src={creator.photo.url}
                 alt="avatar"
-                className="w-16 h-16 rounded-full mx-auto border-4 border-gray-700"
+                className="w-16 h-16 rounded-full mx-auto border-2 border-gray-700"
               />
             </div>
           </div>
@@ -47,8 +47,13 @@ function Creators() {
               {creator.name}
             </h2>
             <p className="text-center text-gray-600 mt-2">{creator.email}</p>
-            <p className="text-center text-gray-600 mt-2">{creator.phone}</p>
-            <p className="text-center text-gray-600 mt-2">{creator.role}</p>
+            {/* <p className="text-center text-gray-600 mt-2">{creator.phone}</p>  */}
+            <p className="text-center text-gray-600 mt-2">
+              {creator.education}
+            </p>
+            <p className="text-center font-semibold text-gray-600 mt-2">
+              {creator.role}
+            </p>
           </div>
         </div>
       ))}

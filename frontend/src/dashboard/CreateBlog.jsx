@@ -66,12 +66,17 @@ function CreateBlog() {
                 className="w-full px-3 py-2 border border-gray-400 rounded-md outline-none"
               >
                 <option value="">Select Category</option>
-                <option value="Devotion">Devotion</option>
+                <option value="International">International</option>
+                <option value="Politics">Politics</option>
+                <option value="Startups">Startups</option>
                 <option value="Sports">Sports</option>
-                <option value="Coding">Coding</option>
+                <option value="tech">Tech</option>
                 <option value="Entertainment">Entertainment</option>
+                <option value="India">India</option>
+                <option value="Technology">Technology</option>
                 <option value="Business">Business</option>
               </select>
+              <option value="Travel">Travel</option>
             </div>
 
             <div className="space-y-2">
@@ -105,7 +110,7 @@ function CreateBlog() {
               <label className="block text-lg">About</label>
               <textarea
                 rows="5"
-                placeholder="Write something about your blog"
+                placeholder="Write something about your blog/News"
                 value={about}
                 onChange={(e) => setAbout(e.target.value)}
                 className="w-full px-3 py-2  border border-gray-400  rounded-md outline-none"
@@ -116,7 +121,7 @@ function CreateBlog() {
               type="submit"
               className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200"
             >
-              Post Blog
+              Post
             </button>
           </form>
         </div>

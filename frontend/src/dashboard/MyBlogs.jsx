@@ -12,7 +12,7 @@ function MyBlogs() {
           "http://localhost:4001/api/blogs/my-blog",
           { withCredentials: true }
         );
-        console.log(data);
+        //console.log(data);
         setMyBlogs(data);
       } catch (error) {
         console.log(error);
@@ -34,10 +34,11 @@ function MyBlogs() {
         toast.error(error.response.message || "Failed to delete blog");
       });
   };
+
   return (
     <div>
       <div className="container mx-auto my-12 p-4">
-        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:ml-20">
+        <div className="grid gap-6 xl:ml-64 lg:ml-64 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
           {myBlogs && myBlogs.length > 0 ? (
             myBlogs.map((element) => (
               <div

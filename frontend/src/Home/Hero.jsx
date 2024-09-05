@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   const { blogs } = useAuth();
-  console.log(blogs);
+  //console.log(blogs);
   return (
     <div className=" container mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6">
       {blogs && blogs.length > 0 ? (
@@ -13,7 +13,7 @@ function Hero() {
             <Link
               to={`/blog/${element._id}`}
               key={element._id}
-              className="bg-white rounded-lg hover:shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="bg-white rounded-lg  border border-gray-400 hover:shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
             >
               <div className="group relative">
                 <img
@@ -26,17 +26,21 @@ function Hero() {
                   {element.title}
                 </h1>
               </div>
+              {/* admin photo */}
               <div className="p-6 flex items-center">
-                <img
+                {/* <img
                   src={element.adminPhoto}
                   alt=""
                   className="w-12 h-12 rounded-full border-2 border-yellow-400"
-                />
+                /> */}
                 <div className="ml-4">
-                  <p className="text-lg font-semibold text-gray-800">
+                  {/* <p className="text-lg font-semibold text-gray-800">
                     {element.adminName}
+                  </p> */}
+
+                  <p className="text-xl font-semibold text-blue-600">
+                    Latest News
                   </p>
-                  <p className="text-xs text-gray-400">New</p>
                 </div>
               </div>
             </Link>

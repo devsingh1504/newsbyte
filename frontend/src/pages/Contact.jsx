@@ -14,7 +14,7 @@ function Contact() {
 
   const onSubmit = async (data) => {
     const userInfo = {
-      access_key: "c660c9ce-c6f9-41f7-aa0f-8a24ea887b94",
+      access_key: "a0decbff-7a55-4f09-bd8b-75674bc50986",
       name: data.username,
       email: data.email,
       message: data.message,
@@ -37,7 +37,7 @@ function Contact() {
           </div>
           <div className="flex flex-col md:flex-row justify-between">
             <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-4">
-              <h3 className="text-lg font-medium text-gray-700 mb-4">
+              <h3 className="text-lg font-bold text-gray-700 mb-4">
                 Send us a message
               </h3>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -85,7 +85,7 @@ function Contact() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-yellow-600 duration-300 "
+                    className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-blue-600 duration-300 "
                   >
                     Send Message
                   </button>
@@ -97,17 +97,17 @@ function Contact() {
                 Contact Information
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-center space-x-2">
+                {/* <li className="flex items-center space-x-2">
                   <FaPhone className="text-red-500" />
                   <span>+91 9876543210</span>
-                </li>
+                </li> */}
                 <li className="flex items-center space-x-2">
                   <FaEnvelope className="text-pink-500" />
-                  <span>help@learncoding.com</span>
+                  <span>k.devsingh14@gmail.com</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaMapMarkerAlt className="text-green-500" />
-                  <span>Delhi, NCR, India</span>
+                  <span>Delhi, India</span>
                 </li>
               </ul>
             </div>

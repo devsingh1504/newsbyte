@@ -77,7 +77,7 @@ function Register() {
         <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
           <form onSubmit={handleRegister}>
             <div className="font-semibold text-xl items-center text-center">
-              Cilli<span className="text-blue-500">Blog</span>
+              News<span className="text-blue-500">byte</span>
             </div>
             <h1 className="text-xl font-semibold mb-6">Register</h1>
             <select
@@ -130,11 +130,12 @@ function Register() {
               onChange={(e) => setEducation(e.target.value)}
               className="w-full p-2 mb-4 border rounded-md"
             >
-              <option value="">Select Your Education</option>
-              <option value="BCA ">BCA</option>
-              <option value="MCA ">MCA</option>
-              <option value="MBA ">MBA</option>
-              <option value="BBA ">BBA</option>
+              {/* ye education wala shema hai backend mai */}
+              <option value="">Select Your professional</option>
+              <option value="Student ">Student</option>
+              <option value="Creator">Creator</option>
+              <option value="Company ">Company</option>
+              <option value="Journalist">Journalist</option>
             </select>
             <div className="flex items-center mb-4">
               <div className="photo w-20 h-20 mr-4">

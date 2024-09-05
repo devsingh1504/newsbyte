@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 function Detail() {
   const { id } = useParams();
   const [blogs, setblogs] = useState({});
-  console.log(blogs);
+  // console.log(blogs);
   useEffect(() => {
     const fetchblogs = async () => {
       try {
@@ -16,11 +16,11 @@ function Detail() {
           {
             withCredentials: true,
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
           }
         );
-        console.log(data);
+        //console.log(data);
         setblogs(data);
       } catch (error) {
         console.log(error);

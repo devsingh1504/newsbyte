@@ -38,7 +38,7 @@ function UpdateBlog() {
             },
           }
         );
-        console.log(data);
+        // console.log(data);
         setTitle(data?.title);
         setCategory(data?.category);
         setAbout(data?.about);

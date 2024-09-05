@@ -26,11 +26,11 @@ function Login() {
         {
           withCredentials: true,
           headers: {
-           "Content-Type": "application/json",
+            "Content-Type": "application/json",
           },
         }
       );
-      console.log(data);
+      //console.log(data);
       toast.success(data.message || "User Logined successfully");
       setProfile(data);
       setIsAuthenticated(true);
@@ -40,7 +40,7 @@ function Login() {
       navigateTo("/");
     } catch (error) {
       console.log(error);
-       toast.error(
+      toast.error(
         error.response.error.data.message || "Please fill the required fields",
         {
           duration: 3000,
@@ -55,7 +55,7 @@ function Login() {
         <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
           <form onSubmit={handleLogin}>
             <div className="font-semibold text-xl items-center text-center">
-              Cilli<span className="text-blue-500">Blog</span>
+              News<span className="text-blue-500">Byte</span>
             </div>
             <h1 className="text-xl font-semibold mb-6">Login</h1>
             <select

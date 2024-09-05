@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 
 function Devotional() {
   const { blogs } = useAuth();
-  const devotionalBlogs = blogs?.filter((blog) => blog.category === "Devotion");
-  console.log(devotionalBlogs);
+  const devotionalBlogs = blogs?.filter((blog) => blog.category === "Business");
+  //console.log(devotionalBlogs);
   return (
     <div>
       <div className="container mx-auto my-12 p-4">
-        <h1 className="text-2xl font-bold mb-6">Devotional</h1>
+        <h1 className="text-2xl font-bold mb-6">WorldWide</h1>
         <p className="text-center mb-8">
-          The concept of gods varies widely across different cultures,
-          religions, and belief systems
+          Each business sector is shaped by its own unique trends, best
+          practices, and global influences.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           {devotionalBlogs && devotionalBlogs.length > 0 ? (
@@ -30,7 +30,9 @@ function Devotional() {
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h2 className="text-lg font-semibold">{blog?.title}</h2>
-                  <p className="text-sm">{blog?.category}</p>
+                  {/* <p className="text-sm bg-blue-500 px-2 py-1 rounded-full inline-block">
+                    {blog?.category}
+                  </p> */}
                 </div>
               </Link>
             ))
