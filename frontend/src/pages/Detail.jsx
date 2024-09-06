@@ -28,6 +28,7 @@ function Detail() {
     };
     fetchblogs();
   }, [id]);
+
   return (
     <div>
       <div>
@@ -51,7 +52,7 @@ function Detail() {
                 <img
                   src={blogs?.blogImage?.url}
                   alt="mainblogsImg"
-                  className="md:w-1/2 w-full h-[500px] mb-6 rounded-lg shadow-lg cursor-pointer border"
+                  className="w-full md:w-1/2 h-auto max-h-80 mb-6 rounded-lg shadow-lg cursor-pointer border"
                 />
               )}
               <div className="md:w-1/2 w-full md:pl-6">
@@ -67,3 +68,4 @@ function Detail() {
 }
 
 export default Detail;
+
