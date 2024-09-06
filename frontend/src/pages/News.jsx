@@ -3,30 +3,31 @@ import axios from "axios";
 
 function News() {
   const [articles, setArticles] = useState([]);
-  const [category, setCategory] = useState("general"); // Default category
-  const [country, setCountry] = useState("us"); // Default country
-  const [loading, setLoading] = useState(false); // New state to manage loading
+  const [category, setCategory] = useState("general");
+  const [country, setCountry] = useState("us");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); // New state to manage errors
 
-  // Fetching data from API based on category and country
   const fetchData = async (category, country) => {
-    setLoading(true); // Set loading to true when fetching starts
+    setLoading(true);
+    setError(null); // Reset error state
     try {
       let response = await axios.get(
         `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=b3032716581240f59c543cf446622263`
       );
       setArticles(response.data.articles);
-      setLoading(false); // Set loading to false after fetching is complete
     } catch (error) {
       console.log("Error fetching API data:", error);
-      setLoading(false); // Set loading to false even in case of error
+      setError("There was an issue fetching the news. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData(category, country); // Fetch news when component loads or when category/country changes
+    fetchData(category, country);
   }, [category, country]);
 
-  // Categories and Countries to display
   const categories = [
     "general",
     "technology",
@@ -36,6 +37,7 @@ function News() {
     "entertainment",
     "science",
   ];
+
   const countries = [
     { code: "us", name: "United States" },
     { code: "in", name: "India" },
@@ -43,13 +45,12 @@ function News() {
     { code: "ca", name: "Canada" },
     { code: "au", name: "Australia" },
     { code: "fr", name: "France" },
-    // Add more countries from the list you shared
   ];
 
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-16 py-8">
-      {/* Country Dropdown */}
       <div className="flex justify-center mb-3">
+        {/* Uncomment this if you want to use the country dropdown */}
         {/* <select
           className="px-4 py-2 rounded-lg border bg-gray-200 text-gray-700"
           value={country}
@@ -63,7 +64,6 @@ function News() {
         </select> */}
       </div>
 
-      {/* Category Tabs */}
       <div className="flex flex-wrap justify-center space-x-2 md:space-x-4 mb-8">
         {categories.map((cat) => (
           <button
@@ -80,15 +80,18 @@ function News() {
         ))}
       </div>
 
-      {/* Loading Spinner or Message */}
       {loading ? (
         <div className="flex justify-center items-center">
           <div className="text-lg font-bold">Loading...</div>
         </div>
+      ) : error ? (
+        <div className="flex justify-center items-center">
+          <div className="text-lg font-bold text-red-500">{error}</div>
+        </div>
       ) : (
         <div className="grid grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-2">
           {articles
-            .filter((article) => article.urlToImage) // Filter out articles without an image
+            .filter((article) => article.urlToImage)
             .map((article, index) => (
               <div
                 key={index}
